@@ -24,4 +24,4 @@ Maven
 
 ▶️ Como executar o projeto
 
-Clone este repositório:
+Clone este repositório: https://github.com/mirandahildebrando/RoomReservationSystem
