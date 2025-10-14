@@ -6,6 +6,8 @@ import com.brando.RoomReservationSystem.service.RoomReservationService;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,10 +20,12 @@ public class RoomReservationController {
         this.roomReservationService = roomReservationService;
     }
 
+    @PostMapping("/reservations")
     public ResponseEntity<RoomReservation> createReservation(@RequestBody RoomReservation roomReservation) {
         return ResponseEntity.ok(roomReservationService.createReservation(roomReservation));
     }
 
+    @GetMapping("/reservations")
     public List<RoomReservation> getAllRoomsReservations() {
         return roomReservationService.getAllRoomsReservations();
     }
