@@ -1,9 +1,6 @@
 package com.brando.RoomReservationSystem.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -15,6 +12,9 @@ public class Room {
     private Long id;
     private String name;
     private int capacity;
+
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.AVAILABLE;
 
 
     public Long getId() {
@@ -35,8 +35,11 @@ public class Room {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+    public Status getStatus() {
+        return status;
+    }
 
-    
-
-
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }

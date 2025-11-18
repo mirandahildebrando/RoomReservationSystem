@@ -1,7 +1,11 @@
 package com.brando.RoomReservationSystem.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
+import com.brando.RoomReservationSystem.dto.OccupiedRoomDetails;
+import com.brando.RoomReservationSystem.entity.Status;
 import org.springframework.stereotype.Service;
 
 import com.brando.RoomReservationSystem.entity.Room;
@@ -16,12 +20,23 @@ public class RoomService {
         this.roomRepository = roomRepository;
     }
 
-        public Room createRoom(Room room) {
-            return roomRepository.save(room);
+
+    public Room createRoom(Room room) {
+
+        return roomRepository.save(room);
+    }
+
+
+
+
+        public long getTotalRooms () {
+            return roomRepository.count();
         }
 
-        public List<Room> getAllRooms() {
-            return roomRepository.findAll();
+        public long getTotalRoomsByStatus (Status status){
+            return roomRepository.countByStatus(status);
         }
 
-}
+
+
+    }
